@@ -14,21 +14,25 @@ void Food::DrawFood(Snake& csnake)//绘制食物
         int tmp_y = rand() % 30;
         if(tmp_x < 2) tmp_x += 2;
         if(tmp_y < 2) tmp_y += 2;
+
+		if (tmp_x == big_x && tmp_y == big_y)
+			continue;
         bool flag = false;
         for (auto& point : csnake.snake)
         {
-            if ((point.GetX() == tmp_x && point.GetY() == tmp_y) || (tmp_x == big_x && tmp_y == big_y)) {
+            if (point.GetX() == tmp_x && point.GetY() == tmp_y) {
                 flag = true;
                 break;
             }
         }
         if (flag)
             continue;
+
         x = tmp_x;
         y = tmp_y;
         SetCursorPosition(x, y);
         SetColor(13);
-        std::cout << "★" ;
+        std::cout << "★";
         ++cnt;
         cnt %= 5;
         if (cnt == 0)
@@ -51,10 +55,13 @@ void Food::DrawBigFood(Snake& csnake)//绘制限时食物
         int tmp_y = rand() % 30;
         if(tmp_x < 2) tmp_x += 2;
         if(tmp_y < 2) tmp_y += 2;
+
+		if (tmp_x == x && tmp_y == y)
+			continue;
         bool flag = false;
         for (auto& point : csnake.snake)
         {
-            if ((point.GetX() == tmp_x && point.GetY() == tmp_y) || (tmp_x == x && tmp_y == y))
+            if (point.GetX() == tmp_x && point.GetY() == tmp_y)
             {
                 flag = true;
                 break;

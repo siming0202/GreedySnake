@@ -1,8 +1,16 @@
-#include "controller.h"
+ï»¿#include "controller.h"
+#include <windows.h>
+#include <stdio.h>
+#include <iostream>
+#include <string>
+#include <vector>
+#include "tools.h"
+#include "map.h"
 
-int main()//³ÌĞòÈë¿Ú
+int main()//ç¨‹åºå…¥å£
 {
-    Controller c;//ÉùÃ÷Ò»¸öControllerÀà
-    c.Game();//Õû¸öÓÎÏ·Ñ­»·
-    return 0;
+	FullScreen();//å…¨å±æ˜¾ç¤º
+    Controller c;//å£°æ˜ä¸€ä¸ªControllerç±»
+    c.Game();//æ•´ä¸ªæ¸¸æˆå¾ªç¯
+	return 0;
 }

@@ -4,7 +4,7 @@
 class Point
 {
 public:
-    Point(){}
+    Point() : x(0),y(0){}
     Point(const int x, const int y) : x(x), y(y) {}
     void Print();
     void PrintCircular();

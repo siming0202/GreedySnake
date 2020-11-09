@@ -5,6 +5,8 @@
 class Snake;
 class Food
 {
+	friend class Snake;
+
 public:
     Food() : cnt(0), flash_flag(false), big_flag(false), x(0), y(0), big_x(0), big_y(0), progress_bar(0) {}
     void DrawFood(Snake&);
@@ -20,6 +22,5 @@ private:
     int x, y;
     int big_x, big_y;
     int progress_bar;//限时食物进度条
-    friend class Snake;
 };
 #endif // FOOD_H

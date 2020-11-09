@@ -7,7 +7,7 @@ class Controller
 public:
     Controller() : speed(200), key(1), score(0) {}
     void Start();
-    void Select();
+    int Select();
     void DrawGame();
     int PlayGame();
     void UpdateScore(const int&);
@@ -19,5 +19,6 @@ private:
     int speed;
     int key;
     int score;
+	int cols_total_num;
 };
 #endif // CONTROLLER_H

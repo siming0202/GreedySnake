@@ -5,6 +5,7 @@
 
 void Snake::InitSnake()//初始化蛇
 {
+	SetColor(6);
     for (auto& point : snake)
     {
         point.PrintCircular();
@@ -41,15 +42,15 @@ void Snake::NormalMove()//蛇正常移动，头增长，尾缩短
     snake.pop_front();
 }
 
-bool Snake::OverEdge()//超出边界
+bool Snake::OverEdge(int right_border)//检测是否未超出边界
 {
-    return snake.back().GetX() < 30 &&
+    return snake.back().GetX() < right_border &&
            snake.back().GetY() < 30 &&
            snake.back().GetX() > 1  &&
            snake.back().GetY() > 1;
 }
 
-bool Snake::HitItself()//撞到自身
+bool Snake::HitItself()//未撞到自身
 {
     std::deque<Point>::size_type cnt = 1;
     Point *head = new Point(snake.back().GetX(), snake.back().GetY());//获得头部坐标
@@ -69,14 +70,15 @@ bool Snake::HitItself()//撞到自身
 
 bool Snake::ChangeDirection()//改变方向
 {
-    char ch;
-    if (kbhit())//kbhit函数返回值为两个，需注意
+    unsigned char ch;
+    if (_kbhit())
     {
-        ch = getch();
+		//方向键需要检测两次
+        ch = _getch();
         switch (ch)
         {
-        case -32:
-            ch = getch();
+        case 224:
+            ch = _getch();
             switch (ch)
             {
             case 72:
@@ -117,6 +119,14 @@ bool Snake::GetFood(const Food& cfood)
         return true;
     else
         return false;
+}
+
+bool Snake::CatchBigFood(Food& cfood)
+{
+	if (snake.back().GetX() == cfood.big_x && snake.back().GetY() == cfood.big_y)
+		return true;
+	else
+		return false;
 }
 
 bool Snake::GetBigFood(Food& cfood)

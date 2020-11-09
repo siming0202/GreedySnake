@@ -78,13 +78,16 @@ public:
         textsnake.emplace_back(Point(0, 16));
         textsnake.emplace_back(Point(0, 18));
     }
-    void PrintFirst();
-    void PrintSecond();
-    void PrintThird();
-    void PrintText();
-    void ClearText();
-    void Action();
+   
+	//统一对外接口，在游戏开始时调用Action()
+    void Action(int);
 private:
+	void PrintFirst();
+	void PrintSecond(int);
+	void PrintThird(int);
+	void PrintText();
+	void ClearText();
+
     std::deque<Point> startsnake;//开始动画中的蛇
     std::vector<Point> textsnake;//开始动画中的文字
     int speed;//动画的速度

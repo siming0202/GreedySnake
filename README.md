@@ -1,10 +1,17 @@
-# GreedySnake
-c++经典项目贪吃蛇游戏控制台版，详细注释。
-(点个star再走不急)
-教程地址：http://blog.csdn.net/silence1772/article/details/55005008
+# 关于本人
+2020/11/09
+鄙人只是个准入职的大四学生，浑浑噩噩度过了三年的时光顿然醒悟要学习点什么知识充实自己~
+恰好之前一直在看关于C++语法的书籍 《C++ Primer》，急切地想要找个项目练练手。
+该项目是通过已有的项目进行修改得来的，代码变动大，也不一定是最优解（从效率，可读性来看），希望以后再过10年，再过20年能有空回来看看这个项目，想想还有没有可以更改的地方。
+这只是我前进的一小步而已，也算是可以不断回顾的一段记忆叭。
 
-## 游戏截图：
-![](https://github.com/silence1772/GreedySnake/raw/master/shot01.jpg)
-![](https://github.com/silence1772/GreedySnake/raw/master/shot02.jpg)
-![](https://github.com/silence1772/GreedySnake/raw/master/shot03.gif)
-![](https://github.com/silence1772/GreedySnake/raw/master/shot04.gif)
+# GreedySnake
+由silence的GreedySnake项目改编，具体改编以下功能：
+1.全屏化显示（用公式计算解决不同分辨率自适配的问题）
+2.修复了原版本PlayGame(游戏二级循环）中的部分逻辑bug:原来的版本存在可能，在判断方向之前判断是否拾取限时食物，导致玩家向着墙的方向操纵蛇去吃墙体旁边的食物，会无法更改方向直接撞在墙上。（如果兄弟们无法理解这段话的含义，建议去Download原项目体验一下）
+
+这里附上原项目的教程地址：
+教程地址：http://blog.csdn.net/silence1772/article/details/55005008
+之后如果有时间会更新本项目的教程地址，具体讲解项目中用到的一些Window API的具体功能。（挖坑）
+
+
